@@ -10,16 +10,30 @@ class InterfacesBase(metaclass=abc.ABCMeta):
     def set_name( self, name ):
         pass
 
-    def get_name( self, name ):
+    def get_name( self ):
         pass
 
-    def get_int( self, name, **kwargs ):
+    def _add_getter( self, name, options : dict ):
         pass
 
-    def get_float( self, name, **kwargs ):
-        pass
+    def get_int( self, name, **options ):
+        options["func"] = int
 
-    def add_func( self, name, func : Callable[ [ dict ], None ], **kwargs):
+        if not "error_warning" in options:
+            options["error_warning"] = "hanya masukkan nilai angka"
+
+        self._add_getter( name, options )
+        
+    def get_float( self, name, **options ):
+        options["func"] = float
+
+        if not "error_warning" in options:
+            options["error_warning"] = "hanya masukkan nilai angka, pisahkan desimal dengan \".\" (Titik)"
+        
+        self._add_getter( name,options )
+
+
+    def add_func( self, name, func : Callable[ [ dict ], None ], **options):
         pass
 
     def show_result( self ):

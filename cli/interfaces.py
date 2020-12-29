@@ -31,43 +31,26 @@ class InterfacesCLI(InterfacesBase):
             error_warning = kwargs["error_warning"]
         
         try:
-            self._value[name] = func( input(input_warning) )
+            self._value[name] = func( input(input_warning).strip() )
         except ValueError:
             print(error_warning)
             return self._get_value( name, kwargs=kwargs )
         
-    def _add_getter( self, name, kwargs : dict ):
-        if not "func" in kwargs:
-            kwargs["func"] = lambda text : text
+    def _add_getter( self, name, options : dict ):
+        if not "func" in options:
+            options["func"] = lambda text : text
 
-        if not "input_warning" in kwargs:
-            kwargs["input_warning"] = f"masukkan nilai {name}:"
+        if not "input_warning" in options:
+            options["input_warning"] = f"masukkan nilai {name}:"
         
-        if not "error_warning" in kwargs:
-            kwargs["error_warning"] = "tidak bisa menkonversi input yang dilakukan"
+        if not "error_warning" in options:
+            options["error_warning"] = "tidak bisa menkonversi input yang dilakukan"
 
         self._list_get_value[name] = {
-            "func" : kwargs["func"],
-            "input_warning" : kwargs["input_warning"],
-            "error_warning" : kwargs["error_warning"]
+            "func" : options["func"],
+            "input_warning" : options["input_warning"],
+            "error_warning" : options["error_warning"]
         }
-
-    def get_int( self, name, **kwargs ): 
-        kwargs["func"] = lambda inp:int(inp)
-
-        if not "error_warning" in kwargs:
-            kwargs["error_warning"] = "hanya masukkan nilai angka"
-
-        self._add_getter( name, kwargs )
-        
-    def get_float( self, name, **kwargs ):
-
-        kwargs["func"] = lambda inp:float(inp)
-
-        if not "error_warning" in kwargs:
-            kwargs["error_warning"] = "hanya masukkan nilai angka, pisahkan desimal dengan \".\" (Titik)"
-        
-        self._add_getter( name,kwargs )
 
     def add_func( self, name, func : Callable[ [ dict ], None ] ):
         if not name in self._result:
