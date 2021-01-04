@@ -80,3 +80,13 @@ class LineEditGroup( QGroupBox ):
             elif isinstance( key, list ):
                 for item in key:
                     item.calc_value( value )
+
+    def clear_value( self ):
+        for key in self._line_edit.values():
+            if issubclass( LineEdit, type(key) ):
+                key.setText( "" )
+            if isinstance( key, list ):
+                for item in key:
+                    item.setText( "" )
+
+        self.text_change_event()

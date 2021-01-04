@@ -35,7 +35,10 @@ class PerhitunganWidget( QGroupBox ):
             self._modul = modul
             self._interfaces.set_name( modul.name )
 
-            modul.get_value( self._interfaces )
+            modul.init_formula( self._interfaces )
 
     def text_change_event( self, value ):
         self._user_output.calc_value( value )
+
+    def clear_value( self ):
+        self._user_input.clear_value()

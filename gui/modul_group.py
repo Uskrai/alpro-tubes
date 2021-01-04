@@ -39,4 +39,5 @@ class ModulGroup( QScrollArea ):
             self.pop_modul()
 
     def clear_value( self ):
-        pass
+        for item in self._modul_list:
+            item.clear_value()

@@ -47,5 +47,5 @@ class ControllerCLI( ControllerBase ):
                             
     def add_modul( self ):
         interface = InterfacesCLI(self._modul.name)
-        self._modul.get_value( interface )
+        self._modul.init_formula( interface )
         self._interfaces = interface

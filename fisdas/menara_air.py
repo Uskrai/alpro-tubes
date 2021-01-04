@@ -12,7 +12,7 @@ class MenaraAir(Modul):
     name = "Menara Air"
 
     # ini tempat ngambil nilai
-    def get_value(self, interfaces: InterfacesBase):
+    def init_formula(self, interfaces: InterfacesBase):
         # kalo mau minta bilangan bulat pake get_int
         # kalo minta bilangan desimal pake get_float
         # parameter pertama itu buat namain variablenya pas nanti dioper

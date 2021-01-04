@@ -17,4 +17,6 @@ class LineEdit( QLineEdit ):
         self._calc = func
 
     def calc_value( self, value ):
-        self.setText( str( self._calc( value ) ) )
+        result = self._calc( value )
+        self.setText( str( result ) )
+        return result
