@@ -8,7 +8,7 @@ def kuadrat(val):
 class TetapanPegas(Modul):
     name = "Tetapan Pegas"
 
-    def get_value(self, interfaces: InterfacesBase):
+    def init_formula(self, interfaces: InterfacesBase):
         interfaces.get_float("m")
         interfaces.get_float("deltay")
         interfaces.get_float("T")

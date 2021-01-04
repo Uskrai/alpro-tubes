@@ -20,7 +20,7 @@ class GerakPeluru(Modul):
     name = "Gerak Peluru"
 
     # ini tempat ngambil nilai
-    def get_value(self, interfaces: InterfacesBase):
+    def init_formula(self, interfaces: InterfacesBase):
         # kalo mau minta bilangan bulat pake get_int
         # kalo minta bilangan desimal pake get_float
         # parameter pertama itu buat namain variablenya pas nanti dioper
@@ -35,12 +35,12 @@ class GerakPeluru(Modul):
         # parameter kedua itu fungsinya
         # ini bisa dipanggil berkali-kali
         interfaces.add_func("Vx", self.Vx)
-        interfaces.add.func("Vy", self.Vy)
-        interfaces.add.func("Vx^2", self.Vx2)
-        interfaces.add.func("Vy^2", self.Vy2)
-        interfaces.add.func("V", self.V)
-        interfaces.add.func("X", self.x)
-        interfaces.add.func("Y", self.y)
+        interfaces.add_func("Vy", self.Vy)
+        interfaces.add_func("Vx^2", self.Vx2)
+        interfaces.add_func("Vy^2", self.Vy2)
+        interfaces.add_func("V", self.V)
+        interfaces.add_func("X", self.x)
+        interfaces.add_func("Y", self.y)
 
     # ini fungsi buat ngitung rumusnya
     # parameter kedua itu buat nilai yang diambil dari method
