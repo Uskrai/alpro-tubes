@@ -19,12 +19,12 @@ class PerhitunganWidget( QGroupBox ):
         self._interfaces = InterfacesGUI("")
 
         self._user_input = LineEditGroup( self )
-        self._user_input.set_column_limit( -1 )
+        self._user_input.set_row_limit( 2 )
         self._user_input.changed.connect( self.text_change_event )
         self._user_input.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Preferred )
 
         self._user_output = LineEditGroup( self )
-        self._user_output.set_column_limit( -1 )
+        self._user_output.set_row_limit( 2 )
         self._user_output.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Preferred )
 
         self._interfaces.set_input( self._user_input )
