@@ -70,9 +70,9 @@ class LineEditGroup( QGroupBox ):
         if text == "":
             return 0
 
-        text.replace( ",", "" )
+        text = text.replace( ",", "" )
 
-        if "." in text or "e" in text:
+        if "." in text:
             return float( text )
 
         return int( text )
