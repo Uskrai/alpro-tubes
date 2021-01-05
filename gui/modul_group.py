@@ -14,7 +14,7 @@ class ModulGroup( QScrollArea ):
 
         self.setWidget( self.group_modul )
 
-        self._modul_list = []
+        self._widget_list = []
 
     def set_modul( self, modul ):
         self._modul = modul
@@ -26,22 +26,26 @@ class ModulGroup( QScrollArea ):
             perhitungan_widget.do_remove_widget.connect( self.remove_widget )
 
             self.group_layout.addWidget( perhitungan_widget )
-            self._modul_list.append( perhitungan_widget )
+            self._widget_list.append( perhitungan_widget )
 
     def remove_widget( self, obj ):
         self.group_layout.removeWidget( obj )
         obj.hide()
         obj.destroy()
 
+    def set_rounding( self, val ):
+        for item in self._widget_list:
+            item.set_rounding( val )
+
     def pop_widget( self ):
-        if self._modul_list:
-            perhitungan_widget = self._modul_list.pop()
+        if self._widget_list:
+            perhitungan_widget = self._widget_list.pop()
             self.remove_widget( perhitungan_widget )
 
     def clear_widget( self ):
-        while self._modul_list:
+        while self._widget_list:
             self.pop_widget()
 
     def clear_value( self ):
-        for item in self._modul_list:
+        for item in self._widget_list:
             item.clear_value()

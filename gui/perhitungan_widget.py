@@ -39,6 +39,10 @@ class PerhitunganWidget( QGroupBox ):
 
         self.set_modul( modul )
 
+    def set_rounding( self, val ):
+        self._user_output.set_rounding( val )
+        self._user_input.text_change_event()
+
     def add_button( self, name, connect_func ):
         self.button[name] = QPushButton( name )
         self._button_layout.addWidget( self.button[name] )

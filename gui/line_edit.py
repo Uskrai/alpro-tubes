@@ -6,6 +6,7 @@ class LineEdit( QLineEdit ):
         self._name = name
         self._option = {}
         self._calc = lambda value : 0
+        self.round = 10 ** 10
 
     def get_name( self ):
         return self._name
@@ -16,7 +17,10 @@ class LineEdit( QLineEdit ):
     def set_calculation( self, func ):
         self._calc = func
 
+    def set_rounding( self, val ):
+        self.round = val
+
     def calc_value( self, value ):
         result = self._calc( value )
-        self.setText( str( result ) )
+        self.setText( str( round( result, self.round ) ) )
         return result

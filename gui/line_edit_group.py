@@ -29,6 +29,10 @@ class LineEditGroup( QGroupBox ):
     def set_row_limit( self, row ):
         self._row_limit = row
 
+    def set_rounding( self, val ):
+        for item in self._line_edit.values():
+            item.set_rounding( val )
+
     def add_line_edit( self, item : LineEdit ):
         item.textChanged.connect( self.text_change_event )
         if item.get_name() in self._line_edit:
