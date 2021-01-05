@@ -13,12 +13,13 @@ class ModulGroup( QScrollArea ):
         self.group_layout.setAlignment( Qt.AlignTop )
 
         self.setWidget( self.group_modul )
-
         self._widget_list = []
 
+    # set modul
     def set_modul( self, modul ):
         self._modul = modul
 
+    # nambah widget
     def add_widget( self ):
         if self._modul is not None:
             modul = self._modul()
@@ -28,6 +29,7 @@ class ModulGroup( QScrollArea ):
             self.group_layout.addWidget( perhitungan_widget )
             self._widget_list.append( perhitungan_widget )
 
+    # hapus widget yang ditunjuk obj
     def remove_widget( self, obj ):
         self.group_layout.removeWidget( obj )
         obj.hide()
@@ -37,15 +39,19 @@ class ModulGroup( QScrollArea ):
         for item in self._widget_list:
             item.set_rounding( val )
 
+    # hapus widget paling akhir
     def pop_widget( self ):
         if self._widget_list:
             perhitungan_widget = self._widget_list.pop()
             self.remove_widget( perhitungan_widget )
 
+    # hapus semua widget
     def clear_widget( self ):
+        # ulangi sampai _widget_list kosong
         while self._widget_list:
             self.pop_widget()
 
+    # clear semua nilai
     def clear_value( self ):
         for item in self._widget_list:
             item.clear_value()
