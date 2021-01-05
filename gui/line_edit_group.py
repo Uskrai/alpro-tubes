@@ -49,7 +49,7 @@ class LineEditGroup( QGroupBox ):
 
         self._col += 1
 
-        if self._col >= self._column_limit:
+        if self._col == self._column_limit:
             self._row += 1
             self._col = 0
 

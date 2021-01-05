@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QGroupBox, QHBoxLayout, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QGroupBox, QHBoxLayout, QVBoxLayout, QPushButton, QSizePolicy
 from PyQt5.QtCore import pyqtSignal
 from base.modul import Modul
 from .interfaces import InterfacesGUI
@@ -19,11 +19,13 @@ class PerhitunganWidget( QGroupBox ):
         self._interfaces = InterfacesGUI("")
 
         self._user_input = LineEditGroup( self )
-        self._user_input.set_column_limit( 3 )
+        self._user_input.set_column_limit( -1 )
         self._user_input.changed.connect( self.text_change_event )
+        self._user_input.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Preferred )
 
         self._user_output = LineEditGroup( self )
-        self._user_output.set_column_limit( 2 )
+        self._user_output.set_column_limit( -1 )
+        self._user_output.setSizePolicy( QSizePolicy.Expanding, QSizePolicy.Preferred )
 
         self._interfaces.set_input( self._user_input )
         self._interfaces.set_output( self._user_output )
@@ -33,9 +35,9 @@ class PerhitunganWidget( QGroupBox ):
         self.add_button( "C", self.clear_value )
         self.add_button( "X", self.remove_widget )
 
-        self.layout.addWidget( self._user_input, 15 )
-        self.layout.addWidget( self._user_output, 10 )
-        self.layout.addLayout( self._button_layout, 1 )
+        self.layout.addWidget( self._user_input )
+        self.layout.addWidget( self._user_output )
+        self.layout.addLayout( self._button_layout )
 
         self.set_modul( modul )
 
@@ -46,6 +48,7 @@ class PerhitunganWidget( QGroupBox ):
     def add_button( self, name, connect_func ):
         self.button[name] = QPushButton( name )
         self._button_layout.addWidget( self.button[name] )
+        self.button[name].setSizePolicy( QSizePolicy.Minimum, QSizePolicy.Minimum )
         self.button[name].adjustSize()
         self.button[name].clicked.connect( connect_func )
 
