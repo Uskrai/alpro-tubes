@@ -47,11 +47,11 @@ class LineEditGroup( QGroupBox ):
 
         self.layout.addWidget( item.get_name(), item, self._row, self._col )
 
-        self._col += 1
+        self._row += 1
 
-        if self._col == self._column_limit:
-            self._row += 1
-            self._col = 0
+        if self._row == self._row_limit:
+            self._row = 0
+            self._col += 1
 
     def text_change_event( self ):
         value = {}
