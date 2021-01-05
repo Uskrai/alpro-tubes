@@ -17,10 +17,10 @@ class ModulWidget(  QGroupBox ):
 
         self._button = {}
 
-        self.add_button( "Add", self._modul_group.add_modul )
+        self.add_button( "Add", self._modul_group.add_widget )
         self.add_button( "Clear Value", self._modul_group.clear_value )
-        self.add_button( "Remove", self._modul_group.pop_modul )
-        self.add_button( "Clear Table", self._modul_group.clear_modul )
+        self.add_button( "Remove", self._modul_group.pop_widget )
+        self.add_button( "Clear Table", self._modul_group.clear_widget )
 
         self._modul = None
 
@@ -31,6 +31,6 @@ class ModulWidget(  QGroupBox ):
 
     def set_modul( self, modul ):
         self._modul = modul
-        self._modul_group.clear_modul()
+        self._modul_group.clear_widget()
         self._modul_group.set_modul( modul )
-        self._modul_group.add_modul()
+        self._modul_group.add_widget()
