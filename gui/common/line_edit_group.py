@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QGroupBox
 from PyQt5.QtCore import Qt, pyqtSignal
-from .form_v_layout import FormVLayout
-from .line_edit import LineEdit
+from gui.common.form_v_layout import FormVLayout
+from gui.common.line_edit import LineEdit
 
 class LineEditGroup( QGroupBox ):
     changed = pyqtSignal( dict )
@@ -72,7 +72,7 @@ class LineEditGroup( QGroupBox ):
 
         text.replace( ",", "" )
 
-        if "." in text:
+        if "." in text or "e" in text:
             return float( text )
 
         return int( text )

@@ -1,8 +1,8 @@
 from typing import Callable
 from PyQt5.QtGui import QIntValidator, QDoubleValidator
 from base.interfaces import InterfacesBase
-from .line_edit_group import LineEditGroup
-from .line_edit import LineEdit
+from gui.common.line_edit_group import LineEditGroup
+from gui.common.line_edit import LineEdit
 
 class InterfacesGUI( InterfacesBase ):
     def __init__( self, parent=None ):
@@ -27,7 +27,9 @@ class InterfacesGUI( InterfacesBase ):
         line_edit.set_option( options )
 
         if options["func"] == float:
-            line_edit.setValidator( QDoubleValidator( line_edit ) )
+            validator = QDoubleValidator( line_edit )
+            validator.setNotation( QDoubleValidator.StandardNotation )
+            line_edit.setValidator( validator )
         elif options["func"] == int:
             line_edit.setValidator( QIntValidator( line_edit ) )
 

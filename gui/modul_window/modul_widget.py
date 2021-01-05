@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIntValidator
-from .modul_group import ModulGroup
-from .line_edit import LineEdit
+from gui.modul_window.modul_group import ModulGroup
+from gui.common.line_edit import LineEdit
 
 class ModulWidget(  QGroupBox ):
     def __init__( self, parent=None ):

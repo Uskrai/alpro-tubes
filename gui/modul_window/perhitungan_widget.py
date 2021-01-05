@@ -1,8 +1,8 @@
 from PyQt5.QtWidgets import QGroupBox, QHBoxLayout, QVBoxLayout, QPushButton, QSizePolicy
 from PyQt5.QtCore import pyqtSignal
 from base.modul import Modul
-from .interfaces import InterfacesGUI
-from .line_edit_group import LineEditGroup
+from gui.interfaces import InterfacesGUI
+from gui.common.line_edit_group import LineEditGroup
 
 class PerhitunganWidget( QGroupBox ):
     do_remove_widget = pyqtSignal( object )

@@ -2,8 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication,QMainWindow
 from PyQt5.QtCore import Qt
 from base.controller import ControllerBase
-from .interfaces import InterfacesGUI
-from .main_widget import MainWidget
+from gui.main_window.main_widget import MainWidget
 
 class ControllerGUI(  ControllerBase, ):
     def __init__( self ):
@@ -19,8 +18,6 @@ class ControllerGUI(  ControllerBase, ):
         self._label = []
         self._label_tree = {}
         self._modul = {}
-
-        self._interfaces = InterfacesGUI
 
     def start(self, modul : dict ):
         self._modul = modul
