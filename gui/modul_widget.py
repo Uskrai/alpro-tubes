@@ -41,7 +41,7 @@ class ModulWidget(  QGroupBox ):
 
     def add_button( self, name, connect_func ):
         self._button[name] = QPushButton( name, self )
-        self._button_layout.addWidget( self._button[name] )
+        self._button_layout.addWidget( self._button[name], 1 )
         self._button[name].clicked.connect( connect_func )
 
     def set_modul( self, modul ):
