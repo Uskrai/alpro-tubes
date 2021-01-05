@@ -18,18 +18,15 @@ class InterfacesBase(metaclass=abc.ABCMeta):
 
     def get_int( self, name, **options ):
         options["func"] = int
-
-        if not "error_warning" in options:
-            options["error_warning"] = "hanya masukkan nilai angka"
-
+        options.setdefault( "name", name )
+        options.setdefault( "error_warning", "hanya masukkan nilai angka" )
         self._add_getter( name, options )
-        
+
     def get_float( self, name, **options ):
         options["func"] = float
+        options.setdefault( "name", name )
+        options.setdefault( "error_warning", "hanya masukkan nilai angka, pisahkan desimal dengan \".\" (Titik)")
 
-        if not "error_warning" in options:
-            options["error_warning"] = "hanya masukkan nilai angka, pisahkan desimal dengan \".\" (Titik)"
-        
         self._add_getter( name,options )
 
 
