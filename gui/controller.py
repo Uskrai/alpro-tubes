@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication,QMainWindow
+from PyQt5.QtCore import Qt
 from base.controller import ControllerBase
 from .interfaces import InterfacesGUI
 from .main_widget import MainWidget
@@ -11,7 +12,7 @@ class ControllerGUI(  ControllerBase, ):
 
         self._window = QMainWindow()
         self._window.setWindowTitle("Rumus fisdas")
-        self._window.setGeometry(300,300,400,400)
+        self._window.setWindowState( Qt.WindowMaximized )
 
         self._widgets = MainWidget( self._window )
         self._window.setCentralWidget( self._widgets )
