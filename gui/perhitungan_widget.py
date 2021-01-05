@@ -32,8 +32,8 @@ class PerhitunganWidget( QGroupBox ):
 
         self._button_layout = QVBoxLayout()
 
-        self.add_button( "C", self.clear_value )
-        self.add_button( "X", self.remove_widget )
+        self.add_button( "Clear", self.clear_value )
+        self.add_button( "Remove", self.remove_widget )
 
         self.layout.addWidget( self._user_input )
         self.layout.addWidget( self._user_output )
