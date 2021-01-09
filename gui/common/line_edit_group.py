@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QGroupBox
 from PyQt5.QtCore import Qt, pyqtSignal
-from .form_v_layout import FormVLayout
-from .line_edit import LineEdit
+from gui.common.form_v_layout import FormVLayout
+from gui.common.line_edit_widget import LineEditWidget
 
 class LineEditGroup( QGroupBox ):
     changed = pyqtSignal( dict )
@@ -29,13 +29,17 @@ class LineEditGroup( QGroupBox ):
     def set_row_limit( self, row ):
         self._row_limit = row
 
-    def add_line_edit( self, item : LineEdit ):
-        item.textChanged.connect( self.text_change_event )
+    def set_rounding( self, val ):
+        for item in self._line_edit.values():
+            item.get_line_edit().set_rounding( val )
+
+    def add_line_edit( self, item : LineEditWidget ):
+        item.get_line_edit().textChanged.connect( self.text_change_event )
         if item.get_name() in self._line_edit:
             temp = self._line_edit[ item.get_name() ]
             if isinstance( temp, list ):
                 self._line_edit[ item.get_name() ].append( temp )
-            elif issubclass( LineEdit, type(temp) ):
+            elif issubclass( LineEditWidget, type(temp) ):
                 temp_list = [ temp, item ]
                 self._line_edit[ item.get_name() ] = temp_list
         else:
@@ -43,21 +47,21 @@ class LineEditGroup( QGroupBox ):
 
         self.layout.addWidget( item.get_name(), item, self._row, self._col )
 
-        self._col += 1
+        self._row += 1
 
-        if self._col >= self._column_limit:
-            self._row += 1
-            self._col = 0
+        if self._row == self._row_limit:
+            self._row = 0
+            self._col += 1
 
     def text_change_event( self ):
         value = {}
         for name, key in self._line_edit.items():
-            if isinstance( key, LineEdit ):
-                value[name] = self.parse_text( key.text() )
+            if isinstance( key, LineEditWidget ):
+                value[name] = self.parse_text( key.get_line_edit().text() )
             elif isinstance( key, list ):
                 value[name] = []
                 for i in key:
-                    value[name].append( self.parse_text( i.text() ) )
+                    value[name].append( self.parse_text( i.get_line_edit().text() ) )
 
         self.changed.emit( value )
 
@@ -66,7 +70,7 @@ class LineEditGroup( QGroupBox ):
         if text == "":
             return 0
 
-        text.replace( ",", "" )
+        text = text.replace( ",", "" )
 
         if "." in text:
             return float( text )
@@ -75,16 +79,16 @@ class LineEditGroup( QGroupBox ):
 
     def calc_value( self, value ):
         for key in self._line_edit.values():
-            if issubclass( LineEdit, type(key) ):
-                key.calc_value( value )
+            if issubclass( LineEditWidget, type(key) ):
+                key.get_line_edit().calc_value( value )
             elif isinstance( key, list ):
                 for item in key:
                     item.calc_value( value )
 
     def clear_value( self ):
         for key in self._line_edit.values():
-            if issubclass( LineEdit, type(key) ):
-                key.setText( "" )
+            if issubclass( LineEditWidget, type(key) ):
+                key.get_line_edit().setText( "" )
             if isinstance( key, list ):
                 for item in key:
                     item.setText( "" )

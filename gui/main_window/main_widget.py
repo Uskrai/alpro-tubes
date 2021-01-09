@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QSizePolicy
 from PyQt5.QtCore import Qt
+from gui.modul_window.modul_widget import ModulWidget
 from .button_widget import ButtonWidget
-from .modul_widget import ModulWidget
 
 class MainWidget( QWidget ):
     def __init__( self, parent=None ):

@@ -41,10 +41,10 @@ class MenaraAir(Modul):
         h1 = value["h1"]
         g  = 9.8
 
-        return str(math.sqrt(2*g*h1)) + " m/s"
+        return str(math.sqrt(2*g*h1))
 
     def jarak(self, value: dict):
         h1 = value["h1"]
         h2 = value["h2"]
 
-        return str(2*math.sqrt(h1*h2)) + " m"
+        return str(2*math.sqrt(h1*h2))
