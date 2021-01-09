@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLayout
+from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QWidget, QLayout
 
 class FormVLayout( QVBoxLayout ):
     def __init__( self, parent=None ):
@@ -12,30 +12,17 @@ class FormVLayout( QVBoxLayout ):
     def prepare_layout( self, row ):
         if self.row <= row:
             self.col_layout.append( QHBoxLayout() )
-            self.col_layout.append( QHBoxLayout() )
-            super().addLayout( self.col_layout[ row * 2 ] )
-            super().addLayout( self.col_layout[ row * 2 + 1] )
+            super().addLayout( self.col_layout[ row] )
             self.row += 1
-
-    def add_label( self, name, row, col ):
-        label = QLabel( name )
-        self.col_layout[ row * 2 ].insertWidget( col, label )
-
 
     def addWidget( self, name, widget : QWidget, row : int, col : int ):
         self.prepare_layout( row )
-        self.add_label( name, row, col )
-
-        self.col_layout[row * 2 + 1].insertWidget( col, widget )
+        self.col_layout[row].insertWidget( col, widget )
 
     def addItem( self, name, item, row, col ):
         self.prepare_layout( row )
-        self.add_label( name, row, col )
-
-        self.col_layout[row * 2 + 1 ].insertItem( item, col )
+        self.col_layout[row].insertItem( item, col )
 
     def addLayout( self, name, layout : QLayout, row, col ):
         self.prepare_layout( row )
-        self.add_label( name, row, col )
-
-        self.col_layout[ row * 2 + 1].insertLayout( layout, col )
+        self.col_layout[ row].insertLayout( layout, col )
