@@ -11,7 +11,7 @@ class MenaraAir(Modul):
         interfaces.get_float("h2",
                              brief="Tinggi menara air",
                              deskripsi="Tinggi menara air yang terhitung dari tanah hingga bagian bawah tangki",
-                             posfix"m")
+                             posfix="m")
         interfaces.add_func("v", self.kecepatan)
         interfaces.add_func("x", self.jarak)
 
