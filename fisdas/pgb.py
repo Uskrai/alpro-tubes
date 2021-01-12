@@ -6,8 +6,16 @@ class PGB( Modul ):
     name = "Percepatan Gravitasi Bumi"
 
     def init_formula( self, interfaces : InterfacesBase ):
-        interfaces.get_float("l")
-        interfaces.get_float("t")
+        interfaces.get_float("l",
+                             brief="panjang tali yang digunakan",
+                             deskripsi="Panjang adalah dimensi suatu benda yang \n\
+                             menyatakan jarak antar ujung. Panjang tali diukur menggunakan penggaris",
+                             posfix="m")
+        interfaces.get_float("T",
+                             brief="Periode getaran bandul",
+                             deskripsi="Periode merupakan waktu yang diperlukan suatu \n\
+                             benda untuk melakukan satu getaran/putaran penuh",
+                             posfix="s")
         interfaces.add_func("Periode", self.periode_getaran )
         interfaces.add_func("g",self.percepatan_gravitasi_bumi)
 
