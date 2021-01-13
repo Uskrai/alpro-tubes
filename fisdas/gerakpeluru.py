@@ -36,13 +36,13 @@ memiliki nilai 9,80665 m/s²",
         interfaces.get_float("Vy",
                              brief="Mencari kuadrat Vy",
                              deskripsi="Masukkan kembali nilai Vy")
-        interfaces.add_func("Vx", self.Vx)
-        interfaces.add_func("Vy", self.Vy)
+        interfaces.add_func("Vx", self.Vx, posfix="m/s")
+        interfaces.add_func("Vy", self.Vy, posfix="m/s")
         interfaces.add_func("Vx^2", self.Vx2)
         interfaces.add_func("Vy^2", self.Vy2)
-        interfaces.add_func("V", self.V)
-        interfaces.add_func("X", self.x)
-        interfaces.add_func("Y", self.y)
+        interfaces.add_func("V", self.V, posfix="m")
+        interfaces.add_func("X", self.x, posfix="m")
+        interfaces.add_func("Y", self.y, posfix="m")
 
     def Vx(self, value: dict):
         V0 = value["V0"]
