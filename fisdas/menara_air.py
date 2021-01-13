@@ -19,8 +19,12 @@ class MenaraAir(Modul):
                              brief="Tinggi menara air",
                              deskripsi="Tinggi menara air yang terhitung dari tanah hingga bagian bawah tangki",
                              posfix="m")
-        interfaces.add_func("v", self.menentukan_kecepatan, posfix="m/s")
-        interfaces.add_func("x", self.jarak, posfix="m/s")
+        interfaces.add_func("v", self.menentukan_kecepatan,
+                            brief="Kecepatan air yang mengalir",
+                            posfix="m/s")
+        interfaces.add_func("x", self.jarak,
+                            brief="Jarak air yang keluar",
+                            posfix="m/s")
 
     def menentukan_kecepatan( self, value : dict):
         h1 = value["h1"]
