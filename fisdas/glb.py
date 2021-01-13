@@ -15,7 +15,11 @@ besaran vektor (memiliki nilai dan arah).",
 perjalanan, sudah termasuk berhenti dan tundaan, dari satu tempat \n\
 ke tempat lain yang melalui rute tertentu.",
                              posfix="s")
-        interfaces.add_func("s", self.hasil_glb, prefix="m" )
+        interfaces.add_func("s", self.hasil_glb,
+                            brief="Jarak tempuh",
+                            dekripsi="Jarak tempuh adalah panjang lintasan yang dilakui\n\
+oleh suatu obyek yang bergerak, mulai dari posisi awal dan selesai pada posisi akhir.",
+                            posfix="m" )
 
     def hasil_glb( self, value : dict ):
         v = value["v"]
