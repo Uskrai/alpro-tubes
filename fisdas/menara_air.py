@@ -12,8 +12,8 @@ class MenaraAir(Modul):
         interfaces.get_float("g",
                              brief="Percepatan gravitasi bumi",
                              deskripsi="Percepatan gravitasi suatu objek yang berada pada \n\
-                             permukaan laut dikatakan ekuivalen dengan 1 g, yang didefinisikan \n\
-                             memiliki nilai 9,80665 m/s²",
+permukaan laut dikatakan ekuivalen dengan 1 g, yang didefinisikan \n\
+memiliki nilai 9,80665 m/s²",
                              posfix="m/s²")
         interfaces.get_float("h2",
                              brief="Tinggi menara air",
