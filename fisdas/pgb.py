@@ -20,7 +20,12 @@ benda untuk melakukan satu getaran/putaran penuh",
                              brief="masukkan bilangan desimal",
                              deskripsi="phi adalah sebuah konstanata dalam matematika\n\
 yang merupakan perbandingan keliling lingkaran dengan diameter")
-        interfaces.add_func("g",self.percepatan_gravitasi_bumi)
+        interfaces.add_func("g",self.percepatan_gravitasi_bumi,
+                            brief="Percepatan gravitasi bumi",
+                            deskripsi="Percepatan gravitasi suatu objek yang berada pada \n\
+                            permukaan laut dikatakan ekuivalen dengan 1 g, yang didefinisikan \n\
+                            memiliki nilai 9,80665 m/s²",
+                            posfix="m/s²")
 
     def percepatan_gravitasi_bumi(self,value : dict):
         l = value ["l"]
