@@ -11,19 +11,24 @@ class TetapanPegas(Modul):
     def init_formula(self, interfaces: InterfacesBase):
         interfaces.get_float("m",
                              brief="massa",
-                             deskripsi="Massa adalah banyaknya materi yang terkandung \n\
-dalam suatu benda. Massa sifatnya konstan atau tidak berubah. ",
+                             deskripsi=
+"Massa adalah banyaknya materi yang terkandung\n\
+dalam suatu benda. Massa sifatnya konstan atau\n\
+tidak berubah. ",
                              postfix="kg")
         interfaces.get_float("deltay",
                              brief="perubahan panjang pegas",
-                             deskripsi="perubahan panjang pegas ketika diberikan beban pada \n\
+                             deskripsi=
+"perubahan panjang pegas ketika diberikan beban pada \n\
 pegas tersebut",
                              postfix="m")
         interfaces.get_float("T",
                              brief="Periode getaran",
-                             dekripsi="Periode merupakan waktu yang diperlukan suatu benda \n\
-untuk melakukan satu getaran/putaran penuh.  Periode getaran dapat \n\
-dihitung dari hubungan waktu yang tercatat dibagi dengan jumlah getaran",
+                             deskripsi=
+"Periode merupakan waktu yang diperlukan suatu benda \n\
+untuk melakukan satu getaran/putaran penuh. Periode\n\
+getaran dapat dihitung dari hubungan waktu yang\n\
+tercatat dibagi dengan jumlah getaran",
                              postfix="s")
 
         interfaces.add_func("ks", self.konstanta_statis,

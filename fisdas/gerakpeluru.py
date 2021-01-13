@@ -8,34 +8,45 @@ class GerakPeluru(Modul):
     def init_formula(self, interfaces: InterfacesBase):
         interfaces.get_float("V<sub>0</sub>",
                              brief="kecepatan ketika peluru ditembakkan",
-                             deskripsi="Kecepatan awal benda (Vo) adalah \n\
+                             deskripsi=
+"Kecepatan awal benda (Vo) adalah \n\
 kecepatan mula-mula yang dimiliki oleh benda saat \n\
 pertama kali benda bergerak.",
                              postfix="m/s")
+
         interfaces.get_float("t",
                              brief="waktu",
-                             deskripsi="waktu tempuh adalah waktu total yang dibutuhkan \n\
-dalam perjalanan, sudah termasuk berhenti dan tundaan, dari satu \n\
-tempat ke tempat lain yang melalui rute tertentu. Disini waktu yang dimaksud\n\
-adalah waktu pada saat kecepatan akan ditentukan. ",
+                             deskripsi=
+"waktu tempuh adalah waktu total yang dibutuhkan \n\
+dalam perjalanan, sudah termasuk berhenti dan tundaan,\
+dari satu \ntempat ke tempat lain yang melalui rute\
+tertentu. Disini waktu yang dimaksud\nadalah waktu pada\
+saat kecepatan akan ditentukan. ",
                              postfix= "s")
+
         interfaces.get_int("θ",
                            brief="sudut elevasi ketika peluru ditembakkan",
-                           deskripsi="Sudut elevasi adalah sudut yang dibentuk oleh arah \n\
+                           deskripsi=
+"Sudut elevasi adalah sudut yang dibentuk oleh arah \n\
 horizontal dengan arah pandangan mata pengamat ke arah atas.",
                            postfix="o")
+
         interfaces.get_float("g",
                              brief="Percepatan gravitasi bumi",
-                             deskripsi="Percepatan gravitasi suatu objek yang berada pada \n\
-permukaan laut dikatakan ekuivalen dengan 1 g, yang didefinisikan \n\
-memiliki nilai 9,80665 m/s²",
+                             deskripsi=
+"Percepatan gravitasi suatu objek yang berada pada \n\
+permukaan laut dikatakan ekuivalen dengan 1 g,\
+yang didefinisikan \n memiliki nilai 9,80665 m/s²",
                              postfix="m/s²")
+
         interfaces.get_float("Vx",
                              brief="Mencari kuadrat Vx",
                              deskripsi="Masukkan kembali nilai Vx")
+
         interfaces.get_float("Vy",
                              brief="Mencari kuadrat Vy",
                              deskripsi="Masukkan kembali nilai Vy")
+
         interfaces.add_func("Vx", self.Vx, postfix="m/s")
         interfaces.add_func("Vy", self.Vy, postfix="m/s")
         interfaces.add_func("Vx<sup>2</sup>", self.Vx2)
@@ -73,7 +84,7 @@ memiliki nilai 9,80665 m/s²",
     def V(self, value: dict):
         Vx = value ["Vx"]
         Vy = value["Vy"]
-        V = kuadrat(Vx + Vy)
+        V = math.pow(Vx + Vy, 2)
         return V
 
     def x(self, value: dict):

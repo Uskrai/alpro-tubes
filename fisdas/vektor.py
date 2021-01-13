@@ -13,7 +13,8 @@ class Vektor( Modul ):
                              brief="vektor b")
         interfaces.get_float("θ",
                              brief="Sudut diantara 2 vektor",
-                             deskripsi="sudut yang terbentuk ketika 2 ujung garis vektor disatukan",
+                             deskripsi=
+"sudut yang terbentuk ketika 2 ujung garis vektor disatukan",
                              postfix="o")
         interfaces.add_func("a + b", self.penjumlahan_vektor )
 
