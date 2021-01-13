@@ -21,8 +21,14 @@ class Gelombang( Modul ):
                              deskripsi="Frekuensi adalah ukuran jumlah terjadinya sebuah\n\
 peristiwa dalam satuan waktu.\n",
                              posfix="Hz")
-        interfaces.add_func("s / n", self.menentukan_panjang_gelombang, posfix="m")
-        interfaces.add_func("lamda * f", self.menentukan_cepat_rambat_gelombang, posfix="m/s")
+        interfaces.add_func("lamda", self.menentukan_panjang_gelombang,
+                            brief="Panjang gelombang",
+                            deskripsi="panjang gelombang berdasarkan hasil perhitungan s/n",
+                            posfix="m")
+        interfaces.add_func("v", self.menentukan_cepat_rambat_gelombang,
+                            brief="Cepat rambat gelombang",
+                            deskripsi="Cepat rambat gelombang yaitu jarak yang ditempuh gelombang satu detik",
+                            posfix="m/s")
 
     def menentukan_panjang_gelombang( self, value : dict ):
         s = value["s"]
