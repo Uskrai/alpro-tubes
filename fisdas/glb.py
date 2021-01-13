@@ -32,7 +32,3 @@ dan selesai pada posisi akhir.",
         v = value["v"]
         t = value["t"]
         return v*t
-
-
-
-

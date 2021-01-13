@@ -103,9 +103,3 @@ yang didefinisikan \n memiliki nilai 9,80665 m/s²",
 
         y = (V0 * math.sin(math.radians(teta))) * (t - 0.5 * g * math.pow(t, 2))
         return y
-
-
-
-
-
-
