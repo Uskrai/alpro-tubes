@@ -6,14 +6,14 @@ class GLB( Modul ):
         interfaces.get_float("v",
                              brief="Kecepatan",
                              deskripsi="kecepatan merupakan cepat lambatnya perubahan posisi \n\
-                             (perpindahan) suatu benda terhadap waktu tempuh, dan merupakan \n\
-                             besaran vektor (memiliki nilai dan arah).",
+(perpindahan) suatu benda terhadap waktu tempuh, dan merupakan \n\
+besaran vektor (memiliki nilai dan arah).",
                              posfix="m/s" )
         interfaces.get_float("t",
                              brief="waktu tempuh",
                              deskripsi="waktu tempuh adalah waktu total yang dibutuhkan dalam\n\
-                             perjalanan, sudah termasuk berhenti dan tundaan, dari satu tempat \n\
-                             ke tempat lain yang melalui rute tertentu.",
+perjalanan, sudah termasuk berhenti dan tundaan, dari satu tempat \n\
+ke tempat lain yang melalui rute tertentu.",
                              posfix="s")
         interfaces.add_func("s", self.hasil_glb, prefix="m" )
 
