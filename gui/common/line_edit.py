@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QLineEdit, QToolTip, QAction
+from PyQt5.QtWidgets import QLineEdit, QToolTip
 
 class LineEdit( QLineEdit ):
     def __init__( self, name, parent=None ):
@@ -8,7 +8,6 @@ class LineEdit( QLineEdit ):
         self._calc = lambda value : 0
         self.round = 10 ** 10
 
-        self.addAction( QAction("owo"), self.TrailingPosition )
         self._tool_tip = QToolTip
 
     def get_name( self ):

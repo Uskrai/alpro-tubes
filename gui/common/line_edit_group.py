@@ -35,16 +35,7 @@ class LineEditGroup( QGroupBox ):
 
     def add_line_edit( self, item : LineEditWidget ):
         item.get_line_edit().textChanged.connect( self.text_change_event )
-        if item.get_name() in self._line_edit:
-            temp = self._line_edit[ item.get_name() ]
-            if isinstance( temp, list ):
-                self._line_edit[ item.get_name() ].append( temp )
-            elif issubclass( LineEditWidget, type(temp) ):
-                temp_list = [ temp, item ]
-                self._line_edit[ item.get_name() ] = temp_list
-        else:
-            self._line_edit[ item.get_name() ] = item
-
+        self._line_edit[ item.get_name() ] = item
         self.layout.addWidget( item.get_name(), item, self._row, self._col )
 
         self._row += 1
@@ -56,12 +47,7 @@ class LineEditGroup( QGroupBox ):
     def text_change_event( self ):
         value = {}
         for name, key in self._line_edit.items():
-            if isinstance( key, LineEditWidget ):
-                value[name] = self.parse_text( key.get_line_edit().text() )
-            elif isinstance( key, list ):
-                value[name] = []
-                for i in key:
-                    value[name].append( self.parse_text( i.get_line_edit().text() ) )
+            value[name] = self.parse_text( key.get_line_edit().text() )
 
         self.changed.emit( value )
 
@@ -79,18 +65,10 @@ class LineEditGroup( QGroupBox ):
 
     def calc_value( self, value ):
         for key in self._line_edit.values():
-            if issubclass( LineEditWidget, type(key) ):
-                key.get_line_edit().calc_value( value )
-            elif isinstance( key, list ):
-                for item in key:
-                    item.calc_value( value )
+            key.get_line_edit().calc_value( value )
 
     def clear_value( self ):
         for key in self._line_edit.values():
-            if issubclass( LineEditWidget, type(key) ):
-                key.get_line_edit().setText( "" )
-            if isinstance( key, list ):
-                for item in key:
-                    item.setText( "" )
+            key.get_line_edit().setText( "" )
 
         self.text_change_event()
