@@ -26,8 +26,12 @@ untuk melakukan satu getaran/putaran penuh.  Periode getaran dapat \n\
 dihitung dari hubungan waktu yang tercatat dibagi dengan jumlah getaran",
                              posfix="s")
 
-        interfaces.add_func("ks", self.konstanta_statis)
-        interfaces.add_func("kd", self.konstanta_dinamis)
+        interfaces.add_func("ks", self.konstanta_statis,
+                            brief="Konstanta pegas statis",
+                            posfix="N/m")
+        interfaces.add_func("kd", self.konstanta_dinamis,
+                            brief="Konstanta pegas dinamis",
+                            posfix="N/m")
 
     def konstanta_statis(self, value: dict):
         m = value["m"]
