@@ -7,23 +7,23 @@ class GLBB( Modul ):
                              brief="Kecepatan Awal",
                              deskripsi="Kecepatan awal benda (Vo) adalah kecepatan mula-mula yang\n\
 dimiliki oleh benda saat pertama kali benda bergerak. ",
-                             posfix="m/s")
+                             postfix="m/s")
         interfaces.get_float("a",
                              brief="percepatan",
                              deskripsi="percepatan atau akselerasi adalah perubahan kecepatan dalam\n\
 satuan waktu tertentu. ",
-                             posfix="m/s<sup>2</sup>")
+                             postfix="m/s<sup>2</sup>")
         interfaces.get_float("t",
                              brief="waktu tempuh",
                              deskripsi="waktu tempuh adalah waktu total yang dibutuhkan dalam\n\
 perjalanan, sudah termasuk berhenti dan tundaan, dari satu tempat \n\
 ke tempat lain yang melalui rute tertentu.",
-                             posfix="s")
+                             postfix="s")
         interfaces.add_func("s", self.hasil_glbb,
                             brief="Jarak tempuh",
                             dekripsi="Jarak tempuh adalah panjang lintasan yang dilakui\n\
 oleh suatu obyek yang bergerak, mulai dari posisi awal dan selesai pada posisi akhir.",
-                            posfix="m")
+                            postfix="m")
 
     def hasil_glbb ( self, value : dict ):
         Vo = value["Vo"]

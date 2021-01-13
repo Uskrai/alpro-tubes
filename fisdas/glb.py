@@ -8,18 +8,18 @@ class GLB( Modul ):
                              deskripsi="kecepatan merupakan cepat lambatnya perubahan posisi \n\
 (perpindahan) suatu benda terhadap waktu tempuh, dan merupakan \n\
 besaran vektor (memiliki nilai dan arah).",
-                             posfix="m/s" )
+                             postfix="m/s" )
         interfaces.get_float("t",
                              brief="waktu tempuh",
                              deskripsi="waktu tempuh adalah waktu total yang dibutuhkan dalam\n\
 perjalanan, sudah termasuk berhenti dan tundaan, dari satu tempat \n\
 ke tempat lain yang melalui rute tertentu.",
-                             posfix="s")
+                             postfix="s")
         interfaces.add_func("s", self.hasil_glb,
                             brief="Jarak tempuh",
                             dekripsi="Jarak tempuh adalah panjang lintasan yang dilakui\n\
 oleh suatu obyek yang bergerak, mulai dari posisi awal dan selesai pada posisi akhir.",
-                            posfix="m" )
+                            postfix="m" )
 
     def hasil_glb( self, value : dict ):
         v = value["v"]

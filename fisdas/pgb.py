@@ -10,12 +10,12 @@ class PGB( Modul ):
                              brief="panjang tali yang digunakan",
                              deskripsi="Panjang adalah dimensi suatu benda yang \n\
 menyatakan jarak antar ujung. Panjang tali diukur menggunakan penggaris",
-                             posfix="m")
+                             postfix="m")
         interfaces.get_float("T",
                              brief="Periode getaran bandul",
                              deskripsi="Periode merupakan waktu yang diperlukan suatu \n\
 benda untuk melakukan satu getaran/putaran penuh",
-                             posfix="s")
+                             postfix="s")
         interfaces.get_float("phi",
                              brief="masukkan bilangan desimal",
                              deskripsi="phi adalah sebuah konstanata dalam matematika\n\
@@ -25,7 +25,7 @@ yang merupakan perbandingan keliling lingkaran dengan diameter")
                             deskripsi="Percepatan gravitasi suatu objek yang berada pada \n\
                             permukaan laut dikatakan ekuivalen dengan 1 g, yang didefinisikan \n\
                             memiliki nilai 9,80665 m/s²",
-                            posfix="m/s²")
+                            postfix="m/s²")
 
     def percepatan_gravitasi_bumi(self,value : dict):
         l = value ["l"]

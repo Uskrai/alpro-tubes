@@ -8,23 +8,23 @@ class MenaraAir(Modul):
         interfaces.get_float("h1",
                              brief="Tinggi air diatas lubang",
                              deskripsi="Tinggi air didalam tangki terhitung dari atas lubang tangki",
-                             posfix="m")
+                             postfix="m")
         interfaces.get_float("g",
                              brief="Percepatan gravitasi bumi",
                              deskripsi="Percepatan gravitasi suatu objek yang berada pada \n\
 permukaan laut dikatakan ekuivalen dengan 1 g, yang didefinisikan \n\
 memiliki nilai 9,80665 m/s²",
-                             posfix="m/s²")
+                             postfix="m/s²")
         interfaces.get_float("h2",
                              brief="Tinggi menara air",
                              deskripsi="Tinggi menara air yang terhitung dari tanah hingga bagian bawah tangki",
-                             posfix="m")
+                             postfix="m")
         interfaces.add_func("v", self.menentukan_kecepatan,
                             brief="Kecepatan air yang mengalir",
-                            posfix="m/s")
+                            postfix="m/s")
         interfaces.add_func("x", self.jarak,
                             brief="Jarak air yang keluar",
-                            posfix="m/s")
+                            postfix="m/s")
 
     def menentukan_kecepatan( self, value : dict):
         h1 = value["h1"]

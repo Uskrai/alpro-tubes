@@ -13,25 +13,25 @@ class TetapanPegas(Modul):
                              brief="massa",
                              deskripsi="Massa adalah banyaknya materi yang terkandung \n\
 dalam suatu benda. Massa sifatnya konstan atau tidak berubah. ",
-                             posfix="kg")
+                             postfix="kg")
         interfaces.get_float("deltay",
                              brief="perubahan panjang pegas",
                              deskripsi="perubahan panjang pegas ketika diberikan beban pada \n\
 pegas tersebut",
-                             posfix="m")
+                             postfix="m")
         interfaces.get_float("T",
                              brief="Periode getaran",
                              dekripsi="Periode merupakan waktu yang diperlukan suatu benda \n\
 untuk melakukan satu getaran/putaran penuh.  Periode getaran dapat \n\
 dihitung dari hubungan waktu yang tercatat dibagi dengan jumlah getaran",
-                             posfix="s")
+                             postfix="s")
 
         interfaces.add_func("ks", self.konstanta_statis,
                             brief="Konstanta pegas statis",
-                            posfix="N/m")
+                            postfix="N/m")
         interfaces.add_func("kd", self.konstanta_dinamis,
                             brief="Konstanta pegas dinamis",
-                            posfix="N/m")
+                            postfix="N/m")
 
     def konstanta_statis(self, value: dict):
         m = value["m"]

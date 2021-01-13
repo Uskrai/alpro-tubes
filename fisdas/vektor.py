@@ -11,16 +11,16 @@ class Vektor( Modul ):
                              brief="vektor a")
         interfaces.get_float("b",
                              brief="vektor b")
-        interfaces.get_float("teta",
+        interfaces.get_float("θ",
                              brief="Sudut diantara 2 vektor",
                              deskripsi="sudut yang terbentuk ketika 2 ujung garis vektor disatukan",
-                             posfix="o")
+                             postfix="o")
         interfaces.add_func("a + b", self.penjumlahan_vektor )
 
     def penjumlahan_vektor( self, value : dict ):
         a = value["a"]
         b = value["b"]
-        teta = value["teta"]
+        teta = value["θ"]
 
         res = kuadrat(a) + kuadrat(b) + ( 2 * a * b * math.cos(math.radians(teta)))
         res = math.sqrt(res)
