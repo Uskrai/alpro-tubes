@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton
+from PyQt5.QtWidgets import QGroupBox, QVBoxLayout, QHBoxLayout, QPushButton, QLabel
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIntValidator
 from gui.modul_window.modul_group import ModulGroup
@@ -25,6 +25,9 @@ class ModulWidget(  QGroupBox ):
         self.add_button( "Remove", self._modul_group.pop_widget )
         self.add_button( "Clear Table", self._modul_group.clear_widget )
 
+        self._label = QLabel("", self )
+        self._label.setAlignment( Qt.AlignHCenter )
+
         # input pembulatan
         self._rounding = LineEdit( "Pembulatan", self )
         self._rounding.setPlaceholderText( "Pembulatan" )
@@ -36,6 +39,7 @@ class ModulWidget(  QGroupBox ):
 
         # nambah item ke layout
         self.layout.addLayout( self._button_layout )
+        self.layout.addWidget( self._label )
         self.layout.addWidget( self._modul_group )
 
     # ganti pembulatan
@@ -57,6 +61,7 @@ class ModulWidget(  QGroupBox ):
             return
 
         self._modul = modul
+        self._label.setText( modul.name )
         self._modul_group.clear_widget()
         self._modul_group.set_modul( modul )
         self._modul_group.add_widget()
