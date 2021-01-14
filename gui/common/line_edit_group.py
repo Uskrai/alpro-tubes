@@ -65,7 +65,7 @@ class LineEditGroup( QGroupBox ):
 
     def calc_value( self, value ):
         for key in self._line_edit.values():
-            key.get_line_edit().calc_value( value )
+            value[key.get_name()] = key.get_line_edit().calc_value( value )
 
     def clear_value( self ):
         for key in self._line_edit.values():
