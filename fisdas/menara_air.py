@@ -2,49 +2,45 @@ from base.interfaces import InterfacesBase
 from base.modul import Modul
 import math
 
-# kalo mau buat kelas(Modul) baru
-# ini filenya dicopy terus ganti nama
-# "Vektor"nya diganti
-# "Modul"nya jangan
-# kalo udah jadi, masukkin ke file modulfactory.py
 class MenaraAir(Modul):
-    # ini nama praktikumnya
     name = "Menara Air"
-
-    # ini tempat ngambil nilai
     def init_formula(self, interfaces: InterfacesBase):
-        # kalo mau minta bilangan bulat pake get_int
-        # kalo minta bilangan desimal pake get_float
-        # parameter pertama itu buat namain variablenya pas nanti dioper
-        # kalo make parameter yang sama, nanti ke overwrite jadi hati hati
-        interfaces.get_float("h1")
-        interfaces.get_float("h2")
+        interfaces.get_float("h<sub>1</sub>",
+                             brief="Tinggi air diatas lubang",
+                             deskripsi=
+"Tinggi air didalam tangki terhitung\n\
+dari atas lubang tangki",
+                             postfix="m")
 
-        # ini buat nambahin fungsi buat ngitung rumusnya,
-        # parameter pertama itu hasil dari apa,
-        # parameter kedua itu fungsinya
-        # ini bisa dipanggil berkali-kali
-        interfaces.add_func("v", self.kecepatan)
-        interfaces.add_func("x", self.jarak)
+        interfaces.get_float("g",
+                             brief="Percepatan gravitasi bumi",
+                             deskripsi=
+"Percepatan gravitasi suatu objek yang berada pada permukaan\n\
+laut dikatakan ekuivalen dengan 1 g, yang didefinisikan\n\
+memiliki nilai 9,80665 m/s²",
+                             postfix="m/s²")
 
-    # ini fungsi buat ngitung rumusnya
-    # parameter kedua itu buat nilai yang diambil dari method
-    # get_value diatas
-    # isi key( [key] ) itu sama kayak yang parameter diatas
-    # kalo diatas interfaces.get_float("a")
-    # ngambilnya value["a"]
+        interfaces.get_float("h<sub>2</sub>",
+                             brief="Tinggi menara air",
+                             deskripsi=
+"Tinggi menara air yang terhitung dari\n\
+tanah hingga bagian bawah tangki",
+                             postfix="m")
 
-    # kalo mau ngambil nama yang dimasukkin
-    # di add_func parameter pertama
-    # bisa ngambil lewat value["_name"]
-    def kecepatan(self, value: dict):
-        h1 = value["h1"]
-        g  = 9.8
+        interfaces.add_func("v", self.menentukan_kecepatan,
+                            brief="Kecepatan air yang mengalir",
+                            postfix="m/s")
 
-        return str(math.sqrt(2*g*h1))
+        interfaces.add_func("x", self.jarak,
+                            brief="Jarak air yang keluar",
+                            postfix="m/s")
+
+    def menentukan_kecepatan( self, value : dict):
+        h1 = value["h<sub>1</sub>"]
+        g = value["g"]
+        return math.sqrt(2*g*h1)
 
     def jarak(self, value: dict):
-        h1 = value["h1"]
-        h2 = value["h2"]
-
-        return str(2*math.sqrt(h1*h2))
+        h1 = value["h<sub>1</sub>"]
+        h2 = value["h<sub>2</sub>"]
+        return 2*math.sqrt(h1*h2)
