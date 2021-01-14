@@ -39,14 +39,6 @@ permukaan laut dikatakan ekuivalen dengan 1 g,\
 yang didefinisikan \n memiliki nilai 9,80665 m/s²",
                              postfix="m/s²")
 
-        interfaces.get_float("Vx",
-                             brief="Mencari kuadrat Vx",
-                             deskripsi="Masukkan kembali nilai Vx")
-
-        interfaces.get_float("Vy",
-                             brief="Mencari kuadrat Vy",
-                             deskripsi="Masukkan kembali nilai Vy")
-
         interfaces.add_func("Vx", self.Vx, postfix="m/s")
         interfaces.add_func("Vy", self.Vy, postfix="m/s")
         interfaces.add_func("Vx<sup>2</sup>", self.Vx2)

@@ -16,12 +16,6 @@ class Gelombang( Modul ):
 "Jumlah gelombang yang dapat diukur dalam\n\
 1 frekuensi dan 1 amplitudo")
 
-        interfaces.get_float("lamda",
-                             brief="panjang gelombang",
-                             deskripsi=
-"panjang gelombang berdasarkan hasil perhitungan s/n",
-                             postfix="m")
-
         interfaces.get_float("f",
                              brief="frekuensi",
                              deskripsi=
